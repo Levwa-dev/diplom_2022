@@ -1,0 +1,106 @@
+.agency-section {
+    padding: 40px 0;
+    background-color: #faf1e5;
+}
+.agency-wraper {
+    display: grid;
+    place-content: center;
+}
+.agency {
+    width: 700px;
+    display: flex;
+}
+.agency-image {
+    width: 260px;
+    height: 260px;
+    margin-right: 10px;
+}
+.agency-image > img {
+    width: 100%;
+    height: 100%;
+}
+.agency-title {
+    margin: 0 0 10px 0;
+    font-size: 30px;
+    letter-spacing: 1.3px;
+}
+.agency-top > p {
+    margin: 10px 0;
+}
+.agency-post {
+    font-size: 20px;
+}
+.agency-city {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+.agency-bottom {
+    border-top: 1px solid #000;
+}
+.agency-short-info {
+    padding: 20px 0;
+    font-size: 16px;
+}
+.agency-realtors,.agency-offers {
+    margin-left: 15px;
+}
+.agency-contacts>p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+.agency-number {
+    letter-spacing: 1.5px;
+}
+.agency-description {
+    padding:40px 0;
+}
+.agency-description-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    letter-spacing: 1.3px;
+}
+.agency-description-paragraph {
+    letter-spacing: 1.3px;
+    line-height: 30px;
+    font-size: 18px;
+}
+.agency-realtors-list {
+   display: grid;
+   grid-template-columns: repeat(6, 200px);
+   column-gap: 20px;
+   padding: 30px 0;
+}
+.agency-realtor {
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+.agency-realtor-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+.agency-realtor-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+.agency-realtor-image > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.agency-offer-title {
+    margin: 0;
+}
+.agency-offers-list {
+    padding: 40px 0;
+}
+.agency-offer {
+    width: 350px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 2px 5px rgba(0,0,0,0.2);
+}
+.agency-offer-slider {
+    width: 600px;
+}
