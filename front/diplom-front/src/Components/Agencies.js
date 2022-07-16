@@ -14,7 +14,7 @@ import agencies from '../Images/agencies.jpg'
 export default function Agencies () {
 
     const findCity = (e) => {
-        const findFormRealtors = document.querySelector('.realtor-find-city')
+        const findFormRealtors = document.querySelector('.realtors-find-city')
         const findFormBtnRealtors = e.target
         findFormRealtors.classList.toggle('open-city-form')
         findFormBtnRealtors.classList.toggle('open-city-form-btn')
@@ -23,7 +23,7 @@ export default function Agencies () {
     useEffect(()=>{
         const toggler = (e)=>{
             const elemRealtors = e.target
-            const findElemRealtors = elemRealtors.closest('.realtor-find-city')
+            const findElemRealtors = elemRealtors.closest('.realtors-find-city')
             const findFormRealtors = document.querySelector('.open-city-form')
             const findFormBtnRealtors = document.querySelector('.open-city-form-btn')
     
@@ -45,21 +45,21 @@ export default function Agencies () {
         <>  
             <Header/>
             <SearchItems/>
-            <section className="realtor-search">
+            <section className="realtors-search">
                     <div className="wraper">
-                        <h2 className="realtor-title">Агенства в місті 
-                            <span onClick={findCity} className="realtor-city">Запоріжжя</span>
-                            <div className="realtor-find-city">
-                                <form className="realtor-find-city-form">
-                                    <label htmlFor="realtor-find-city-input">Введіть місто</label>
-                                    <input id='realtor-find-city-input'/>
+                        <h2 className="realtors-title">Агенства в місті 
+                            <span onClick={findCity} className="realtors-city">Запоріжжя</span>
+                            <div className="realtors-find-city">
+                                <form className="realtors-find-city-form">
+                                    <label htmlFor="realtors-find-city-input">Введіть місто</label>
+                                    <input id='realtors-find-city-input'/>
                                     <button>Знайти</button>
                                 </form>
                             </div>
                         </h2>
-                        <form className="realtor-search-form">
-                            <input className="realtor-search-input" placeholder="Назва агенства"/>
-                            <button className="realtor-search-btn">Знайти</button>
+                        <form className="realtors-search-form">
+                            <input className="realtors-search-input" placeholder="Назва агенства"/>
+                            <button className="realtors-search-btn">Знайти</button>
                         </form>
                     </div>
             </section>

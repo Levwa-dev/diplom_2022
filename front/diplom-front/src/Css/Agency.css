@@ -90,17 +90,9 @@
     height: 100%;
     border-radius: 50%;
 }
+.agency-offers-section {
+    padding-bottom: 40px;
+}
 .agency-offer-title {
     margin: 0;
-}
-.agency-offers-list {
-    padding: 40px 0;
-}
-.agency-offer {
-    width: 350px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 2px 5px rgba(0,0,0,0.2);
-}
-.agency-offer-slider {
-    width: 600px;
 }

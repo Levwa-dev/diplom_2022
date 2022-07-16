@@ -1,0 +1,97 @@
+.realtor-section {
+    padding: 40px 0;
+}
+.realtor-info-content {
+    display: grid;
+    place-content: center;
+}
+.realtor-info {
+    display: flex;
+}
+.realtor-left{
+    width: 280px;
+    display: grid;
+    place-items: center;
+}
+.realtor-image {
+    width: 250px;
+    height: 250px;
+}
+.realtor-image > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.realtor-recomendation {
+    padding: 10px 0;
+    display: grid;
+    place-items: center;
+}
+.realtor-fontAwesome{
+    font-size: 30px;
+    color: gold;
+}
+.realtor-recomendation-count>span>span {
+    font-size: 23px;
+    margin: 0 5px;
+}
+.realtor-recomendation-count>span {
+    font-size: 18px;
+}
+.realtor-recomend {
+    border: 1px solid #000;
+    background-color: antiquewhite;
+    margin: 10px 0;
+    padding: 10px 20px !important;
+    letter-spacing: 1.3px;
+    cursor: pointer;
+    transition: 1.5s;
+}
+.realtor-recomend:hover {
+    background-color:#27cc87;;
+}
+.realtor-right {
+    padding: 10px;
+    width: 600px;
+}
+.realtor-description-top {
+    border-bottom: 1px solid #000;
+}
+.realtor-name {
+    margin: 0;
+    font-size: 26px;
+}
+.realtor-agency {
+    margin: 10px 0;
+    font-size: 16px;
+}
+.realtor-agency-link{
+    text-decoration: none;
+    color: blue;
+    font-size: 20px;
+    letter-spacing: 1.3px;
+    cursor: pointer;
+}
+.realtor-agency-link:hover{
+    color: #27cc87;
+}
+.realtor-area {
+    margin: 10px 0;  
+    font-size: 20px; 
+}
+.realtor-number{
+    margin: 10px 0;
+    font-size: 16px;
+}
+.realtor-number>span{
+    font-size: 20px;
+    letter-spacing: 1.3px;
+}
+.realtor-slider-section {
+    padding-bottom: 40px;
+}
+.realtor-slider-title {
+    margin-top: 0;
+    font-size: 26px;
+    letter-spacing: 1.3px;
+}

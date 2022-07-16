@@ -1,10 +1,12 @@
 import React from "react";
+
 import house from '../Images/house.jpg'
 import {faDollarSign} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Search from './Search.js';
 import Footer from "./Footer.js";
-import Header from './Header.js'
+import Header from './Header.js';
+import { Link } from "react-router-dom";
 
 export default function Main () {
 
@@ -17,9 +19,11 @@ export default function Main () {
                 <div className="main-content-wraper">
                     <div className="main-content">
                         <div className="offer">
-                            <div className="offer-image">
-                                <img src={house} alt="Фото квартири"/>
-                            </div>
+                            <Link to='/offer'>
+                                <div className="offer-image">
+                                    <img src={house} alt="Фото квартири"/>
+                                </div>
+                            </Link>
                             <p className="offer-price">20500 <FontAwesomeIcon icon={faDollarSign}/></p>
                             <div className="offer-description">
                                 <h4 className="offer-title">Будівельників бульвар</h4>

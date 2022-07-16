@@ -1,18 +1,21 @@
 import React from "react";
-import Slider from "react-slick";
+
 
 import Header from "./Header.js";
 import Footer from "./Footer.js";
+import SliderOffer from "./OfferSlider.js";
+
 import agencies from "../Images/agencies.jpg"
 import realtor from "../Images/realtor.jpg"
-import house from "../Images/house.jpg"
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faLocationDot, faDollarSign } from "@fortawesome/free-solid-svg-icons"
+import {faLocationDot} from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom";
 
 export default function Agency () {
 
     return (
         <>  <Header/>
+            <main>
             <section className="agency-section">
                 <div className="wraper">
                     <div className="agency-wraper">
@@ -53,9 +56,11 @@ export default function Agency () {
                     <h2 className="agency-realtors-title">Список агенів Олімп</h2>
                     <div className="agency-realtors-list">
                         <div className="agency-realtor">
-                            <div className="agency-realtor-image">
-                                <img src={realtor} alt="Фото агента"/>
-                            </div>
+                            <Link to='/realtors/realtor'>
+                                <div className="agency-realtor-image">
+                                    <img src={realtor} alt="Фото агента"/>
+                                </div>
+                            </Link>
                             <p className="agency-realtor-name">Гірняк Василь</p>
                         </div>
                         <div className="agency-realtor">
@@ -70,56 +75,12 @@ export default function Agency () {
             <section className="agency-offers-section">
                 <div className="wraper">
                     <h2 className="agency-offers-title">Активні Пропозиції</h2>
-                    <div className="agency-offers-list">
-                        <SimpleSlider/>
-                    </div>
+                    <SliderOffer/>
                 </div>
             </section>
+            </main>
             <Footer/>
         </>
     )
-}
-
-
-class SimpleSlider extends React.Component {
-  render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
-    return (
-      <div className="agency-oferr-slider">
-        <Slider {...settings}>
-        <div className="agency-offer">
-            <div className="offer-image">
-                <img src={house} alt="Фото квартири"/>
-            </div>
-            <p className="offer-price">20500 <FontAwesomeIcon icon={faDollarSign}/></p>
-            <div className="offer-description">
-                <h4 className="offer-title">Будівельників бульвар</h4>
-                <p className="offer-area">Бородинський, Бородинська вулиця, Дніпровський (Ленінський)</p>
-                <span className="offer-city">Запоріжжя</span>
-                <p className="offer-rooms">3 кімнати - 52.94 м²</p>
-            </div>
-        </div>
-        <div className="agency-offer">
-            <div className="offer-image">
-                <img src={house} alt="Фото квартири"/>
-            </div>
-            <p className="offer-price">20500 <FontAwesomeIcon icon={faDollarSign}/></p>
-            <div className="offer-description">
-                <h4 className="offer-title">Будівельників бульвар</h4>
-                <p className="offer-area">Бородинський, Бородинська вулиця, Дніпровський (Ленінський)</p>
-                <span className="offer-city">Запоріжжя</span>
-                <p className="offer-rooms">3 кімнати - 52.94 м²</p>
-            </div>
-        </div>
-        </Slider>
-      </div>
-    );
-  }
 }
 

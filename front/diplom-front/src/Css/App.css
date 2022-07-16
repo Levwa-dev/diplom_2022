@@ -5,6 +5,9 @@
 @import 'Realtors.css';
 @import 'Agencies.css';
 @import 'Agency.css';
+@import 'Realtor.css';
+@import 'OfferSlider.css';
+@import 'Offer.css';
 
 
 .wraper {
@@ -26,4 +29,7 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
-  
+  .slick-prev::before,.slick-next::before {
+    color: black !important;
+    font-size: 30px !important;
+  }

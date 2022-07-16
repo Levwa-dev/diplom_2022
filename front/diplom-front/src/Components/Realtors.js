@@ -6,10 +6,11 @@ import realtor from '../Images/realtor.jpg'
 import {faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Paginator} from './Main.js'
+import { Link } from "react-router-dom";
 
 export default function Realtors () {
     const findCity = (e) => {
-        const findFormRealtors = document.querySelector('.realtor-find-city')
+        const findFormRealtors = document.querySelector('.realtors-find-city')
         const findFormBtnRealtors = e.target
         findFormRealtors.classList.toggle('open-city-form')
         findFormBtnRealtors.classList.toggle('open-city-form-btn')
@@ -17,7 +18,7 @@ export default function Realtors () {
     useEffect(()=>{
         const toggler = (e)=>{
             const elemRealtors = e.target
-            const findElemRealtors = elemRealtors.closest('.realtor-find-city')
+            const findElemRealtors = elemRealtors.closest('.realtors-find-city')
             const findFormRealtors = document.querySelector('.open-city-form')
             const findFormBtnRealtors = document.querySelector('.open-city-form-btn')
     
@@ -40,21 +41,21 @@ export default function Realtors () {
         <Header/>
         <main>
             <SearchItems>
-                <section className="realtor-search">
+                <section className="realtors-search">
                     <div className="wraper">
-                        <h2 className="realtor-title">Рієлтори в місті 
-                            <span onClick={findCity} className="realtor-city">Запоріжжя</span>
-                            <div className="realtor-find-city">
-                                <form className="realtor-find-city-form">
-                                    <label htmlFor="realtor-find-city-input">Введіть місто</label>
-                                    <input id='realtor-find-city-input'/>
+                        <h2 className="realtors-title">Рієлтори в місті 
+                            <span onClick={findCity} className="realtors-city">Запоріжжя</span>
+                            <div className="realtors-find-city">
+                                <form className="realtors-find-city-form">
+                                    <label htmlFor="realtors-find-city-input">Введіть місто</label>
+                                    <input id='realtors-find-city-input'/>
                                     <button>Знайти</button>
                                 </form>
                             </div>
                         </h2>
-                        <form className="realtor-search-form">
-                            <input className="realtor-search-input" placeholder="Ім'я або прізвище"/>
-                            <button className="realtor-search-btn">Знайти</button>
+                        <form className="realtors-search-form">
+                            <input className="realtors-search-input" placeholder="Ім'я або прізвище"/>
+                            <button className="realtors-search-btn">Знайти</button>
                         </form>
                     </div>
                 </section>
@@ -78,59 +79,61 @@ export function SearchItems ({children}) {
 function RealtorMain () {
 
     return (
-        <section className="realtor-main">
-            <div className="realtor-content">
-                <div className="realtor-item">
-                        <div className="realtor-image">
-                            <img alt='Фото рієлтора'src={realtor} />
-                        </div>
-                        <div className="realtor-item-info">
-                            <div className="realtor-item-name">
-                                <span className="realtor-item-firstName">Гірняк</span><span className="realtor-item-lastName"> Василь</span>
+        <section className="realtors-main">
+            <div className="realtors-content">
+                <div className="realtors-item">
+                        <Link to='/realtors/realtor'>
+                            <div className="realtors-image">
+                                <img alt='Фото рієлтора'src={realtor} />
                             </div>
-                            <div className="realtor-item-position">Спеціалість з продажу нерухомості</div>
-                            <div className="realtor-item-rating-container">
-                                <div className="realtor-item-rating"><span className="realtor-item-rating-count">100 </span><FontAwesomeIcon className="realtor-item-rating-fontawesome" icon={faThumbsUp}/><br/>Рекомендацій</div>
+                        </Link> 
+                        <div className="realtors-item-info">
+                            <div className="realtors-item-name">
+                                <span className="realtors-item-firstName">Гірняк</span><span className="realtors-item-lastName"> Василь</span>
                             </div>
-                            <div className="realtor-item-contacts">
-                                <p className="realtor-item-tel">Телефон</p>
-                                <p className="realtor-item-number">0667270180</p>
+                            <div className="realtors-item-position">Спеціалість з продажу нерухомості</div>
+                            <div className="realtors-item-rating-container">
+                                <div className="realtors-item-rating"><span className="realtors-item-rating-count">100 </span><FontAwesomeIcon className="realtors-item-rating-fontawesome" icon={faThumbsUp}/><br/>Рекомендацій</div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="realtor-item">
-                        <div className="realtor-image">
-                            <img alt='Фото рієлтора'src={realtor} />
-                        </div>
-                        <div className="realtor-item-info">
-                            <div className="realtor-item-name">
-                                <span className="realtor-item-firstName">Гірняк</span><span className="realtor-item-lastName"> Василь</span>
-                            </div>
-                            <div className="realtor-item-position">Спеціалість з продажу нерухомості</div>
-                            <div className="realtor-item-rating-container">
-                                <div className="realtor-item-rating"><span className="realtor-item-rating-count">100 </span><FontAwesomeIcon className="realtor-item-rating-fontawesome" icon={faThumbsUp}/><br/>Рекомендацій</div>
-                            </div>
-                            <div className="realtor-item-contacts">
-                                <p className="realtor-item-tel">Телефон</p>
-                                <p className="realtor-item-number">0667270180</p>
+                            <div className="realtors-item-contacts">
+                                <p className="realtors-item-tel">Телефон</p>
+                                <p className="realtors-item-number">0667270180</p>
                             </div>
                         </div>
                     </div>
-                    <div className="realtor-item">
-                        <div className="realtor-image">
+                    <div className="realtors-item">
+                        <div className="realtors-image">
                             <img alt='Фото рієлтора'src={realtor} />
                         </div>
-                        <div className="realtor-item-info">
-                            <div className="realtor-item-name">
-                                <span className="realtor-item-firstName">Гірняк</span><span className="realtor-item-lastName"> Василь</span>
+                        <div className="realtors-item-info">
+                            <div className="realtors-item-name">
+                                <span className="realtors-item-firstName">Гірняк</span><span className="realtors-item-lastName"> Василь</span>
                             </div>
-                            <div className="realtor-item-position">Спеціалість з продажу нерухомості</div>
-                            <div className="realtor-item-rating-container">
-                                <div className="realtor-item-rating"><span className="realtor-item-rating-count">100 </span><FontAwesomeIcon className="realtor-item-rating-fontawesome" icon={faThumbsUp}/><br/>Рекомендацій</div>
+                            <div className="realtors-item-position">Спеціалість з продажу нерухомості</div>
+                            <div className="realtors-item-rating-container">
+                                <div className="realtors-item-rating"><span className="realtors-item-rating-count">100 </span><FontAwesomeIcon className="realtors-item-rating-fontawesome" icon={faThumbsUp}/><br/>Рекомендацій</div>
                             </div>
-                            <div className="realtor-item-contacts">
-                                <p className="realtor-item-tel">Телефон</p>
-                                <p className="realtor-item-number">0667270180</p>
+                            <div className="realtors-item-contacts">
+                                <p className="realtors-item-tel">Телефон</p>
+                                <p className="realtors-item-number">0667270180</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="realtors-item">
+                        <div className="realtors-image">
+                            <img alt='Фото рієлтора'src={realtor} />
+                        </div>
+                        <div className="realtors-item-info">
+                            <div className="realtors-item-name">
+                                <span className="realtors-item-firstName">Гірняк</span><span className="realtors-item-lastName"> Василь</span>
+                            </div>
+                            <div className="realtors-item-position">Спеціалість з продажу нерухомості</div>
+                            <div className="realtors-item-rating-container">
+                                <div className="realtors-item-rating"><span className="realtors-item-rating-count">100 </span><FontAwesomeIcon className="realtors-item-rating-fontawesome" icon={faThumbsUp}/><br/>Рекомендацій</div>
+                            </div>
+                            <div className="realtors-item-contacts">
+                                <p className="realtors-item-tel">Телефон</p>
+                                <p className="realtors-item-number">0667270180</p>
                         </div>
                     </div>
                 </div>
