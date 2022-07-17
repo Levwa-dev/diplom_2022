@@ -96,3 +96,9 @@
 .agency-offer-title {
     margin: 0;
 }
+
+@media screen and (max-width:770px) {
+    .agency{
+        width: 500px;
+    }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { useState,useEffect } from "react";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,11 +11,24 @@ import {faDollarSign} from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom";
 
 export default function SliderOffer () {
+    const [slidesToShow, setSlidesToShow] = useState(3)
+    useEffect(()=>{
+            let width = document.documentElement.clientWidth
+            if (width <= 800){
+                setSlidesToShow(1)
+            }
+            else if( width <= 1160) {
+                setSlidesToShow(2)
+            }
+            else {
+                setSlidesToShow(3)
+            }
+    },[slidesToShow])
 
     return (
             <div className="offers-slider">
                     <Slider dots={false}
-                            slidesToShow={3}
+                            slidesToShow={slidesToShow}
                             slidesToScroll={1}
                             autoplay={false}
                             infinite={true}>

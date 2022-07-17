@@ -148,3 +148,25 @@
         grid-template-columns: repeat(1, 400px);
     }
 }
+@media screen and (max-width:515px) {
+    .realtors-content {
+        grid-template-columns: repeat(1, 310px);
+    }
+    .realtors-item{
+        width: 300px;
+    }
+    .realtors-image{
+        width: 150px;
+        height: 100%;
+    }
+    .realtors-find-city{
+        left: 70px;
+    }
+    .realtors-search-form{
+        max-width: 350px;
+    }
+    .realtors-search-input{
+        width: 250px;
+        margin-right: 10px;
+    }
+}

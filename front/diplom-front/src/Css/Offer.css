@@ -1,0 +1,174 @@
+.offer-images-section {
+    padding: 40px 0;
+}
+.offer-images-wraper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.offer-images {
+    display: grid;
+    grid-template-columns: 500px auto;
+    column-gap: 10px;
+}
+.offer-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 270px);
+    grid-template-rows: repeat(2, 170px);
+    gap: 10px;
+}
+.offer-main-image,.offer-main-image > img,.offer-photo,.offer-photo > img {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.offer-btn-showMore {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.offer-showMore {
+    padding: 10px !important;
+    border: 1px solid #000;
+    outline: none;
+    cursor: pointer;
+    background-color: antiquewhite;
+    transition: 1.5s;
+    letter-spacing: 1.3px;
+}
+.offer-showMore:hover {
+    background-color: #27cc87;
+}
+.offer-info {
+    display: grid;
+    place-content: center;
+}
+.offer-description-body {
+    width: 800px;
+}
+.offer-short-price {
+    font-size: 38px;
+    font-weight: bolder;
+    letter-spacing: 1.8px;
+    margin-right: 15px;
+}
+.offer-short-money {
+    display: flex;
+    align-items: center;
+}
+.offer-price-per-meter {
+    font-size: 16px;
+    font-weight: bolder;
+}
+.offer-short-street,.offer-short-area {
+    margin: 10px 0;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.offer-short-area {
+ font-size: 24px;   
+}
+.offer-short-info{
+    display: grid;
+    grid-template-columns: repeat(2, 190px);
+    column-gap: 10px;
+    margin-bottom: 30px;
+}
+.offer-short-column > p {
+    margin:10px 0;
+    color: rgb(77, 77, 77);
+}
+.offer-full-content > p {
+    letter-spacing: 1.3px;
+    font-size: 18px;
+}
+
+
+.offer-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+}
+.modal-content {
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.modal-slider{
+    z-index: 102;
+}
+.offer-modal-curtain {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    opacity: 0.6;
+    width: 100vw;
+    height: 100vh;
+}
+.modal-opened {
+    display: block;
+}
+.modal-slider {
+    padding: 40px 45px 40px 40px;
+    background-color: antiquewhite;
+    width: 900px;
+    height: 600px;
+}
+.modal-slider > div {
+    width: 100%;
+    height: 100%;
+    padding-left:10px
+}
+.modal-slide{
+    width: 100%;
+    height: 600px;
+}
+.modal-slide > img {
+    width: 100%;
+    height: 100%;
+}
+.offer-map {
+    background-color: #27cc87;
+    width: 800px;
+    height: 400px;
+}
+.offer-realtor-section {
+    margin-bottom: 40px;
+}
+.offer-realtor-block {
+    display: flex;
+}
+.offer-realtor-image{
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+.offer-realtor-image > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.offer-realtor-info>p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    letter-spacing: 1.2px;
+    font-size: 18px;
+}
+.offer-realtor-name {
+    font-size: 26px;
+    font-weight: 600;
+}
+.offer-realtor-number{
+    font-weight: 600;
+}
+.offer-realtor-number > span {
+    letter-spacing: 1.5px;
+}

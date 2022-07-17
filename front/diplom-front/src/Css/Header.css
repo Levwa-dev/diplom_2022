@@ -25,13 +25,13 @@ header {
     height: 100%;
 }
 .header-list {
-    display: flex;
-    padding: 0;
+    display: grid;
     margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(4, 100px);
     height: 100%;
 }
 .header-item {
-    margin-left: 20px;
     list-style-type: none;
     transition: 1.5s;
     height: 100%;
@@ -53,7 +53,6 @@ header {
 }
 .header-action {
     display: grid;
-    grid-template-columns: repeat(1, auto);
     justify-content: end;
 }
 .header-action-content {
