@@ -136,7 +136,6 @@ function OfferInfo () {
                                 <div className="offer-map"></div>
                             </div>
                         </div>
-                         {/* CREATE AND IMPORT REALTOR COMPONENT*/}
                          <OffersRealtor/>
                     </div>
                 </div>
