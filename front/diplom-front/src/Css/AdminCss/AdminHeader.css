@@ -1,0 +1,21 @@
+.admin-header {
+    min-height: 50px;
+    background-color: rgb(181, 181, 248);
+    margin: 0;
+}
+.admin-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.admin-header-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+.admin-btn-exit {
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(181, 246, 224);
+    border: none;
+}

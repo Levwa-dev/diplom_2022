@@ -6,8 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Header from "./Header.js"
 import Footer from "./Footer.js"
 
-import house from "../Images/house.jpg"
-import realtor from "../Images/realtor.jpg"
+import house from "../../Images/house.jpg"
+import realtor from "../../Images/realtor.jpg"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDollarSign, faBed, faStairs, faTrowelBricks, faPenRuler, faThumbsUp } from "@fortawesome/free-solid-svg-icons"

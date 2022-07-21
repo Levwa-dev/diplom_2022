@@ -5,7 +5,7 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import SliderOffer from "./OfferSlider.js";
 
-import realtor from '../Images/realtor.jpg'
+import realtor from '../../Images/realtor.jpg'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faThumbsUp} from "@fortawesome/free-solid-svg-icons"
 import {faLocationDot} from "@fortawesome/free-solid-svg-icons"

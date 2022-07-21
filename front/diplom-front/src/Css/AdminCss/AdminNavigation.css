@@ -1,0 +1,27 @@
+.admin-navigation {
+    max-width: 200px;
+    width: 100%;
+    border-right: 1px solid #000;
+    display: grid;
+    justify-content: center;
+    height: 92vh;
+}
+.admin-navigation-list {
+    margin: 0;
+    padding: 0;
+    margin-top: 40px;
+}
+.admin-navigation-item {
+    list-style: none;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.admin-navigation-item > a {
+    text-decoration: none;
+    color: #000;
+}
+.admin-navigation-item > a:hover {
+    color: orange;
+}

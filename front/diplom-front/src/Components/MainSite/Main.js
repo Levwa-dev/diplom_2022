@@ -1,6 +1,6 @@
 import React from "react";
 
-import house from '../Images/house.jpg'
+import house from '../../Images/house.jpg'
 import {faDollarSign} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Search from './Search.js';

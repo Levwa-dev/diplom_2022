@@ -9,25 +9,6 @@ export const sequelize = new Sequelize('diplom_22_base', 'root', 'root', {
         timestamps: false
     }
 })
-
-const validatePassword = (value) => {
-  const reg = /[a-zA-Z0-9]/
-  const ok = reg.exec(value)
-  if(ok){
-    if (value.length >=6 && value.length <= 20){
-      const hash = bcrypt.hashSync(value, 10)
-      this.setDataValue('password', hash)
-    }
-    else {
-      throw new Error ('Ваш пароль повинен бути від 6 до 20 символів')
-    }
-  }
-  else {
-    throw new Error ("Пароль повинен бути латинськими буквами з додаванням цифр(або без них)")
-  }
-}
-
-
 export const Admin = sequelize.define('admin',{
   id: {
     type: Sequelize.INTEGER,
@@ -58,7 +39,20 @@ export const Admin = sequelize.define('admin',{
     type: Sequelize.STRING,
     allowNull: false,
     set(value){
-      validatePassword(value)
+      const reg = /[a-zA-Z0-9]/
+      const ok = reg.exec(value)
+      if(ok){
+        if (value.length >=6 && value.length <= 20){
+          const hash = bcrypt.hashSync(value, 10)
+          this.setDataValue('password', hash)
+        }
+        else {
+          throw new Error ('Ваш пароль повинен бути від 6 до 20 символів')
+        }
+      }
+      else {
+        throw new Error ("Пароль повинен бути латинськими буквами з додаванням цифр(або без них)")
+      }
     }
   },
   date: {
@@ -164,6 +158,13 @@ export const Realtor = sequelize.define('realtor',{
     type: Sequelize.STRING,
     allowNull: false,
   },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    set(){
+      this.setDataValue('name' `${firstName} ${lastName}`)
+    }
+  },
   email:{
     type: Sequelize.STRING,
     allowNull:false,
@@ -178,7 +179,21 @@ export const Realtor = sequelize.define('realtor',{
     type: Sequelize.STRING,
     allowNull: false,
     set(value){
-      validatePassword(value)}
+      const reg = /[a-zA-Z0-9]/
+      const ok = reg.exec(value)
+      if(ok){
+        if (value.length >=6 && value.length <= 20){
+          const hash = bcrypt.hashSync(value, 10)
+          this.setDataValue('password', hash)
+        }
+        else {
+          throw new Error ('Ваш пароль повинен бути від 6 до 20 символів')
+        }
+      }
+      else {
+        throw new Error ("Пароль повинен бути латинськими буквами з додаванням цифр(або без них)")
+      }
+    }
   },
   city: {
     type: Sequelize.STRING,
@@ -226,7 +241,21 @@ export const Agency = sequelize.define('agency',{
     type: Sequelize.STRING,
     allowNull: false,
     set(value){
-      validatePassword(value)}
+      const reg = /[a-zA-Z0-9]/
+      const ok = reg.exec(value)
+      if(ok){
+        if (value.length >=6 && value.length <= 20){
+          const hash = bcrypt.hashSync(value, 10)
+          this.setDataValue('password', hash)
+        }
+        else {
+          throw new Error ('Ваш пароль повинен бути від 6 до 20 символів')
+        }
+      }
+      else {
+        throw new Error ("Пароль повинен бути латинськими буквами з додаванням цифр(або без них)")
+      }
+    }
   },
   email: {
     type: Sequelize.STRING,

@@ -2,7 +2,7 @@ import React from "react";
 import {useEffect} from "react";
 import Footer from "./Footer.js";
 import Header from "./Header.js";
-import realtor from '../Images/realtor.jpg'
+import realtor from '../../Images/realtor.jpg'
 import {faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Paginator} from './Main.js'

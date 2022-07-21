@@ -1,18 +1,29 @@
-@import 'Header.css';
-@import 'Search.css';
-@import 'Main.css';
-@import 'Footer.css';
-@import 'Realtors.css';
-@import 'Agencies.css';
-@import 'Agency.css';
-@import 'Realtor.css';
-@import 'OfferSlider.css';
-@import 'Offer.css';
+@import './MainSiteCss/Header.css';
+@import './MainSiteCss/Search.css';
+@import './MainSiteCss/Main.css';
+@import './MainSiteCss/Footer.css';
+@import './MainSiteCss/Realtors.css';
+@import './MainSiteCss/Agencies.css';
+@import './MainSiteCss/Agency.css';
+@import './MainSiteCss/Realtor.css';
+@import './MainSiteCss/OfferSlider.css';
+@import './MainSiteCss/Offer.css';
 
+@import './AdminCss/AdminLogin.css';
+@import './AdminCss/AdminHeader.css';
+@import './AdminCss/AdminNavigation.css';
+@import './AdminCss/AdminMainPage.css';
+@import './AdminCss/AdminSearch.css';
+@import './AdminCss/AdminRealtors.css';
 
 .wraper {
     width: 98%;
     margin: 0 auto;
+}
+.admin-wrapper-content {
+  display: grid;
+  grid-template-columns: 201px auto;
+  
 }
 body {
     margin: 0;

@@ -1,0 +1,21 @@
+.admin-search-title {
+    text-align: center;
+}
+.admin-search {
+    display: grid;
+    place-content: center;
+}
+.admin-search-input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #000;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+.admin-search-btn {
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #000;
+}

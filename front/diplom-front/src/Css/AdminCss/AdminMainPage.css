@@ -1,0 +1,9 @@
+.admin-main-page-content {
+    display: grid;
+    place-content: center;
+}
+.admin-main-page {
+    display: grid;
+    place-content: center;
+    text-align: center;
+}

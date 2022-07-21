@@ -5,8 +5,8 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import SliderOffer from "./OfferSlider.js";
 
-import agencies from "../Images/agencies.jpg"
-import realtor from "../Images/realtor.jpg"
+import agencies from "../../Images/agencies.jpg"
+import realtor from "../../Images/realtor.jpg"
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLocationDot} from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom";

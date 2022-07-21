@@ -8,7 +8,7 @@ import Footer from "./Footer.js";
 import {faCalendarDays, faPeopleRoof, faBuilding} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import agencies from '../Images/agencies.jpg'
+import agencies from '../../Images/agencies.jpg'
 
 
 export default function Agencies () {
