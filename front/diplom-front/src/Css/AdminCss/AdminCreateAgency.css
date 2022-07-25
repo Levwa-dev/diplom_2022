@@ -1,0 +1,63 @@
+.create-agency-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+.create-agency-title {
+    margin: 30px 0;
+    text-align: center;
+}
+.create-agency-form > input {
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #000;
+    width: 300px;
+}
+.create-agency-form > label {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.create-agency-form > textarea {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#create-agency-number::-webkit-outer-spin-button,
+#create-agency-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#create-agency-number[type=number] {
+  -moz-appearance: textfield;
+}
+
+#create-agency-image{ 
+    z-index: -1;
+    position: absolute;
+    opacity: 0;
+}
+#create-agency-image + label {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #000;
+}
+#create-agency-image + label:hover {
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(250, 227, 185);
+}
+#create-agency-btn {
+    margin-top: 17px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    background-color: orange;
+    cursor: pointer;
+}
+.create-agency-form >span {
+    margin-bottom: 10px;
+    color: red;
+}

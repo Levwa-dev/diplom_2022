@@ -12,6 +12,7 @@ import AdminLogin from './Components/Admin/AdminLogin.js'
 import AdminMainPage from './Components/Admin/AdminMainPage.js'
 import AdminRealtors  from './Components/Admin/AdminRealtors.js'
 import AdminAgencies from './Components/Admin/AdminAgencies.js'
+import AdminCreateAgency from './Components/Admin/AdminCreateAgency.js'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route exact path='/admin/main-page' element={<AdminMainPage/>}/>
         <Route exact path='/admin/realtors' element={<AdminRealtors/>}/>
         <Route exact path='/admin/agencies' element={<AdminAgencies/>}/>
+        <Route exact path='/admin/create-agency' element={<AdminCreateAgency/>}/>
       </Routes>
     </BrowserRouter>
   );

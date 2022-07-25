@@ -39,9 +39,9 @@ export const Admin = sequelize.define('admin',{
     type: Sequelize.STRING,
     allowNull: false,
     set(value){
-      const reg = /[a-zA-Z0-9]/
+      const reg = /[а-яА-яЁё\s]/
       const ok = reg.exec(value)
-      if(ok){
+      if(!ok){
         if (value.length >=6 && value.length <= 20){
           const hash = bcrypt.hashSync(value, 10)
           this.setDataValue('password', hash)
@@ -59,7 +59,7 @@ export const Admin = sequelize.define('admin',{
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW(),
     get: ()=>{
-      return this.getDataValue('date').toLocaleString('ua-ua',{timeZone: 'UTC'})
+      return this.getDataValue('date').toLocaleString('uk-uk',{timeZone: 'UTC'})
     }
   }
 });
@@ -136,7 +136,7 @@ export const Offer = sequelize.define('offer',{
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW(),
     get: ()=>{
-      return this.getDataValue('date').toLocaleString('ua-ua',{timeZone: 'UTC'})
+      return this.getDataValue('date').toLocaleString('uk-uk',{timeZone: 'UTC'})
     }
   }
 });
@@ -179,9 +179,9 @@ export const Realtor = sequelize.define('realtor',{
     type: Sequelize.STRING,
     allowNull: false,
     set(value){
-      const reg = /[a-zA-Z0-9]/
+      const reg = /[а-яА-яЁё\s]/
       const ok = reg.exec(value)
-      if(ok){
+      if(!ok){
         if (value.length >=6 && value.length <= 20){
           const hash = bcrypt.hashSync(value, 10)
           this.setDataValue('password', hash)
@@ -219,7 +219,7 @@ export const Realtor = sequelize.define('realtor',{
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW(),
     get: ()=>{
-      return this.getDataValue('date').toLocaleString('ua-ua',{timeZone: 'UTC'})
+      return this.getDataValue('date').toLocaleString('uk-uk',{timeZone: 'UTC'})
     }
   }
 });
@@ -241,9 +241,9 @@ export const Agency = sequelize.define('agency',{
     type: Sequelize.STRING,
     allowNull: false,
     set(value){
-      const reg = /[a-zA-Z0-9]/
+      const reg = /[а-яА-яЁё\s]/
       const ok = reg.exec(value)
-      if(ok){
+      if(!ok){
         if (value.length >=6 && value.length <= 20){
           const hash = bcrypt.hashSync(value, 10)
           this.setDataValue('password', hash)
@@ -290,14 +290,11 @@ export const Agency = sequelize.define('agency',{
     type: Sequelize.STRING
   },
   logo: {
-    type: Sequelize.BLOB('long')
+    type: Sequelize.STRING(350)
   },
   date: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW(),
-    get: ()=>{
-      return this.getDataValue('date').toLocaleString('ua-ua',{timeZone: 'UTC'})
-    }
   }
 });
 Agency.hasMany(Realtor, {onDelete:'cascade'})

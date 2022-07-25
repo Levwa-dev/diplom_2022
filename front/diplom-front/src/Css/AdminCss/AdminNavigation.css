@@ -1,10 +1,13 @@
 .admin-navigation {
-    max-width: 200px;
+    max-width: 150px;
     width: 100%;
     border-right: 1px solid #000;
     display: grid;
     justify-content: center;
-    height: 92vh;
+    min-height: 92vh;
+    position: fixed;
+    top: 64.15px;
+    left: 0;
 }
 .admin-navigation-list {
     margin: 0;

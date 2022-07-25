@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function AdminRealtors () {
     const [realtors, setRealtors] = useState([])
+    const [searchValue, setSearchValue] = useState([])
 
     useEffect(()=>{
         fetch ('http://localhost:5555/admin/realtors')
