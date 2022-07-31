@@ -8,14 +8,15 @@ import { Link } from "react-router-dom";
 
 export default function AdminRealtors () {
     const [realtors, setRealtors] = useState([])
-    const [searchValue, setSearchValue] = useState([])
+    const [searchRealtors, setSearchRealtors] = useState([])
 
     useEffect(()=>{
         fetch ('http://localhost:5555/admin/realtors')
         .then(data=>data.json())
         .then(data=>setRealtors(data))
-        .catch(err=>console.log(err))
+        .catch(()=>alert('Сервер не відповідає'))
     },[])
+
     return (
         <>
             <AdminHeader/>
@@ -24,8 +25,30 @@ export default function AdminRealtors () {
                 <div className="admin-wrapper-content">
                     <AdminNavigation/>
                     <div className="admin-content">
-                        <h2 className="admin-search-title">Пошук за Ім'ям, Прізвищем, Email або Телефоном</h2> 
-                        <AdminSearch/>
+                        <h2 className="admin-search-title">Пошук за Ім'ям та Прізвищем, Email, Телефоном або Агенцією</h2> 
+                        <AdminSearch saveSearchValue={setSearchRealtors}>
+                            <div className="admin-list">
+                                {searchRealtors.map(item=>{
+                                    if(item.err){
+                                        return <p key={item.id}>{item.err}</p>
+                                    }
+                                    else{
+                                        return(
+                                            <Link key={item.id} to={`/admin/agency/${item.id}`}>
+                                                <ul className="admin-list-items">
+                                                    <li>{item.id}</li>
+                                                    <li>{item.name}</li>
+                                                    <li>{item.email}</li>
+                                                    <li>{item.password}</li>
+                                                    <li>{item.city}</li>
+                                                    <li>{item.number}</li>
+                                                    <li>{item.agencyName}</li>
+                                                </ul>
+                                            </Link>
+                                    )}
+                                })}
+                            </div>
+                        </AdminSearch>
                         <Link to='/admin/realtor' className="admin-add">Додати рієлтора</Link>
                         <div className="admin-list">
                         <ul className="admin-list-title">
@@ -44,9 +67,9 @@ export default function AdminRealtors () {
                                     <li>{item.name}</li>
                                     <li>{item.email}</li>
                                     <li>{item.password}</li>
-                                    <li>Запоріжжя</li>
-                                    <li>+380667270180</li>
-                                    <li>Олімп</li>
+                                    <li>{item.city}</li>
+                                    <li>{item.number}</li>
+                                    <li>{item.agencyName}</li>
                                 </ul>
                                 )
                             })}

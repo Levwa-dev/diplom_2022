@@ -4,13 +4,16 @@ import bcrypt from 'bcrypt';
 import { __dirname } from "./settings.js"
 import cors from 'cors'
 import { sequelize } from "./models.js";
-import { Admin, Agency} from "./models.js";
+
+import { Admin, Agency, Realtor} from "./models.js";
 import { upload } from "./multerConfig.js";
+import { insertAgencyName } from "./helpers.js";
 
 
 const app = express()
+const host = 'http://localhost:5555'
 
-app.use(express.static('static'));
+app.use(express.static('public'));
 
 const jsonParser = express.json();
 
@@ -21,34 +24,6 @@ sequelize.sync().then(
 app.use(cors({
     origin: 'http://localhost:3000'
 }))
-app.get('/admin/realtors', jsonParser,(req, res)=>{
-    Admin.findAll({ raw:true// attributes: ["id","name"]
-    })
-    .then(users=>res.json(users))
-    .catch(err=>console.log(err))
-})
-app.post('/admin/realtors', jsonParser, (req, res)=>{
-    let request = req.body.input
-    Admin.findAll({where:{name:request}, raw:true})
-    .then(users=>{
-        if(users.length === 0){
-            Admin.findAll({where:{email:request}, raw:true})
-            .then(users=>{
-                if (users.length === 0){
-                    res.json([{id: 1, err:'Такого рієлтора не існує'}])
-                }
-                else{
-                    res.json(users);
-                  
-                }
-            })
-            .catch(err=>{console.log(err)})
-        }
-        else{
-            res.json(users)}
-        })
-        .catch(err=>console.log(err))
-})
 app.get('/admin/agencies', jsonParser, (req,res)=>{
     Agency.findAll({
         attributes: [
@@ -164,7 +139,7 @@ app.post('/admin/agencies', jsonParser, (req, res)=>{
 })
 app.post('/admin/create-agency', upload.single('image'), (req, res)=>{
         let copy = {...req.body}
-        const photo = __dirname + '/static/AgenciesPhoto/' + req.file.filename
+        const photo = `${host}/static/AgenciesPhoto/` + req.file.filename
         copy.logo = photo
         Agency.create({...copy})
         .then(()=>res.send(JSON.stringify({resp:true})))
@@ -175,3 +150,133 @@ app.post('/admin/create-agency', upload.single('image'), (req, res)=>{
             res.send(JSON.stringify({resp:false, message:errorMessage[0].message}))
         })
 })
+app.get('/admin/agency/:id', jsonParser, (req, res)=>{
+    const id = req.params.id
+    Agency.findByPk(id)
+    .then(agency=>{
+        if(!agency){
+            res.json({error:'404'})
+        }
+        else{
+            res.json(agency)
+        }
+    })
+    .catch(err=>{
+        console.log(err.message)
+        res.json({error:err.message})
+    })
+})
+app.delete('/admin/agency/:id', jsonParser, (req, res)=>{
+    const agencyId = req.params.id
+    Agency.findByPk(agencyId)
+    .then(agency=>{
+        let photo = agency.logo
+        photo = photo.split('/').slice(3, photo.length-1).join('\\')
+        photo = __dirname+'\\public\\'+photo
+        Agency.destroy({
+            where:{id:agencyId}
+            })
+            .then(()=>{
+                unlinkSync(photo)
+                res.json(true)})
+            .catch((err)=>{
+                console.log(err)
+            res.json(false)})
+    })
+    .catch(()=>res.json(false))
+})
+app.post('/admin/agency/:id', upload.single('logo'), (req,res)=>{
+    const agencyId = req.params.id
+    let copy = {...req.body}
+    let photo
+    if(req.file){
+        photo = `${host}/static/AgenciesPhoto/` + req.file.filename
+        copy.logo = photo
+        Agency.findByPk(agencyId)
+        .then(agency=>{
+            let logo = agency.logo
+            logo = logo.split('/').slice(3, logo.length-1).join('\\')
+            logo = __dirname+'\\public\\'+logo
+            unlinkSync(logo)
+        })
+        .catch(()=>res.send(JSON.stringify(false)))
+
+    }
+    Agency.update({...copy},{
+        where: {id:agencyId}
+    })
+    .then(()=> res.send(JSON.stringify(true)))
+    .catch(()=>{
+        unlinkSync(photo)
+        res.send(JSON.stringify(false))
+    })
+})
+
+app.get('/admin/realtors', jsonParser,(req, res)=>{
+    async function load () {
+        let realtors =  await Realtor.findAll({
+            attributes: [
+            "id",
+            "name",
+            "email",
+            "password",
+            "city",
+            "number",
+            "agencyId",
+        ]})
+        let data = await insertAgencyName(realtors, Agency)
+        res.json(data)
+    }
+    load()
+})
+app.post('/admin/realtors', jsonParser, (req, res)=>{
+    async function load () {
+        try {
+            let request = req.body.input
+            const attributes = [
+                "id",
+                "name",
+                "email",
+                "password",
+                "city",
+                "number",
+                "agencyId"
+            ]
+            let agency =  await Agency.findOne({where:{name:request}, raw:true})
+            if(agency){
+                let agencyId = agency.id
+                let realtors = await Realtor.findAll({where:{agencyId:agencyId}, attributes})
+                let data = await insertAgencyName(realtors, Agency)
+                res.json(data)   
+            }
+            else{
+                let name = await Realtor.findAll({where:{name:request}, attributes})
+                if(name.length === 0) {
+                    let email = await Realtor.findAll({where:{email:request}, attributes})
+                    if(email.length === 0) {
+                        let number = await Realtor.findAll({where:{number:request}, attributes})
+                        if(number.length === 0) {
+                            res.json([{id: 1, err:'Такого рієлтора не існує'}])
+                        }
+                        else {
+                            let data = await insertAgencyName(number, Agency)
+                            res.json(data)    
+                        }  
+                    }
+                    else {
+                        let data = await insertAgencyName(email, Agency)
+                        res.json(data)
+                    }
+                }
+                else {
+                    let data = await insertAgencyName(name, Agency)
+                    res.json(data)
+                }
+            }
+        } catch (err) {res.send(false)}
+    }
+    load()
+})
+//const date = new Date()
+//await Agency.create({name:'Olimp', password:'NoexuL123', email:'asd@ds.com', city:'NIkopol', street:'Usova', building:'4', description:'asdasd', workingFrom: date, number:'0667270180' })
+//await Realtor.create({firstName:'Jane', lastName:'Smith', name:'John Smith', email:'john@gmail.com', password:'NoexuL123', city:'Nikopol', description:'asdasdasd', number:'0667270180', agencyId: 1 })

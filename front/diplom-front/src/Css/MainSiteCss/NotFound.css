@@ -1,0 +1,48 @@
+.not-found-main {
+    background-image: url('../../Images/notFound2.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: 50% 50%;
+    display: grid;
+    place-content: center;
+}
+@keyframes notFoundAnimation {
+    0%{
+        color: #fff;
+        transform: rotate(0deg);
+    }
+    25%{
+        color: #ff4848;
+        transform: rotate(10deg);
+    }
+    50%{
+        color: #ff0000;
+        transform: rotate(0deg);
+    }
+    75%{
+        color: #ff4848;
+        transform: rotate(-10deg);
+    }
+    100%{
+        color: rgb(255, 255, 255);
+        transform: rotate(0deg);
+    }
+}
+.not-found-content {
+    color: #fff;
+    text-align: center;
+    font-family: cursive;
+    letter-spacing: 1.5px;
+    animation-name: notFoundAnimation;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    height: 300px;
+
+}
+.not-found-content > h1 {
+    font-size: 36px;
+}
+.not-found-content > p {
+    font-size: 26px;
+}

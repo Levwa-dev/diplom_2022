@@ -30,6 +30,7 @@ export default function AdminSearch (props) {
         }
     } 
     return (
+        <>
         <div className="admin-search">
             <form className="admin-search-form">
                 <input value={inputValue} onChange={saveInput} id="admin-search-input" className="admin-search-input"/>
@@ -37,5 +38,7 @@ export default function AdminSearch (props) {
                 <button onClick={clearSearch} className="admin-search-btn">Очистити</button>
             </form>
         </div>
+        {props.children}
+        </>
     )
 }

@@ -50,7 +50,6 @@ export default function AdminCreateAgency () {
                     body: formData
                 });
                 const result = await response.json()
-                console.log(result)
                 if(result.resp) {
                     alert('Запис збереженно')
                     window.location.reload(false)
@@ -64,7 +63,6 @@ export default function AdminCreateAgency () {
             }
         }
         catch(err){
-            console.log(err)
             alert("Сервер не відповідає, спробуйте пізніше")
         }
     }

@@ -20,7 +20,7 @@ export default function AdminAgencies () {
         fetch ('http://localhost:5555/admin/agencies')
         .then(result=>result.json())
         .then(result=>setAgencies(result))
-        .catch(err=>console.log(err)) 
+        .catch(err=>alert("Сервер не відповідає")) 
     },[])
 
     return (
@@ -32,7 +32,7 @@ export default function AdminAgencies () {
                         <AdminNavigation/>
                         <div className="admin-content">
                             <h2 className="admin-search-title">Пошук за Назвою, Email, Містом, та Телефоном</h2>
-                            <AdminSearch saveSearchValue = {saveSearchValue}/>
+                            <AdminSearch saveSearchValue = {saveSearchValue}>
                             <div className="admin-list">
                                 {searchAgencies.map(item=>{
                                     if(item.err){
@@ -40,7 +40,8 @@ export default function AdminAgencies () {
                                     }
                                     else{
                                         return(
-                                                <ul key={item.id} className="admin-list-items">
+                                            <Link key={item.id} to={`/admin/agency/${item.id}`}>
+                                                <ul className="admin-list-items">
                                                     <li>{item.id}</li>
                                                     <li>{item.name}</li>
                                                     <li>{item.email}</li>
@@ -49,9 +50,11 @@ export default function AdminAgencies () {
                                                     <li>{item.number}</li>
                                                     <li>{formatter.format(Date.parse(item.date))}</li>
                                                 </ul>
+                                            </Link>
                                     )}
                                 })}
                             </div>
+                            </AdminSearch>
                             <Link to='/admin/create-agency' className="admin-add">Додати агенцію</Link>
                             <div className="admin-list">
                                 <ul className="admin-list-title">
@@ -66,15 +69,17 @@ export default function AdminAgencies () {
                                 {
                                     agencies.map(item=>{
                                         return (
-                                        <ul key={item.id} className="admin-list-items">
-                                            <li>{item.id}</li>
-                                            <li>{item.name}</li>
-                                            <li>{item.email}</li>
-                                            <li>{item.password}</li>
-                                            <li>{item.city}</li>
-                                            <li>{item.number}</li>
-                                            <li>{formatter.format(Date.parse(item.date))}</li>
-                                        </ul>
+                                        <Link key={item.id} to={`/admin/agency/${item.id}`}>
+                                            <ul className="admin-list-items">
+                                                <li>{item.id}</li>
+                                                <li>{item.name}</li>
+                                                <li>{item.email}</li>
+                                                <li>{item.password}</li>
+                                                <li>{item.city}</li>
+                                                <li>{item.number}</li>
+                                                <li>{formatter.format(Date.parse(item.date))}</li>
+                                            </ul>
+                                        </Link>
                                         )
                                     })
                                 }

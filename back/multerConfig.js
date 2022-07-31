@@ -4,7 +4,7 @@ import { __dirname } from "./settings.js"
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, __dirname+'/static/AgenciesPhoto')
+      cb(null, __dirname+'/public/static/AgenciesPhoto')
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()

@@ -161,9 +161,6 @@ export const Realtor = sequelize.define('realtor',{
   name: {
     type: Sequelize.STRING,
     allowNull: false,
-    set(){
-      this.setDataValue('name' `${firstName} ${lastName}`)
-    }
   },
   email:{
     type: Sequelize.STRING,
@@ -209,7 +206,7 @@ export const Realtor = sequelize.define('realtor',{
     defaultValue: 0
   },
   photo:{
-    type: Sequelize.BLOB('long')
+    type: Sequelize.STRING(350)
   },
   number:{
     type: Sequelize.INTEGER,
@@ -218,9 +215,6 @@ export const Realtor = sequelize.define('realtor',{
   date: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW(),
-    get: ()=>{
-      return this.getDataValue('date').toLocaleString('uk-uk',{timeZone: 'UTC'})
-    }
   }
 });
 Realtor.hasMany(Offer, {onDelete: 'cascade'})
@@ -297,4 +291,5 @@ export const Agency = sequelize.define('agency',{
     defaultValue: Sequelize.NOW(),
   }
 });
+Realtor.belongsTo(Agency)
 Agency.hasMany(Realtor, {onDelete:'cascade'})
